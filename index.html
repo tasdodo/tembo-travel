@@ -194,14 +194,15 @@
     ============================================================ */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: transparent; height: 72px;
+      background: rgba(34, 34, 38, 0.97); height: 72px;
       display: flex; align-items: center;
-      transition: background 400ms ease, box-shadow 400ms ease, backdrop-filter 400ms ease;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.04), 0 4px 24px rgba(0,0,0,0.12);
+      transition: background 400ms ease, box-shadow 400ms ease;
     }
     .nav.scrolled {
-      background: rgba(28, 28, 30, 0.92);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 1px 24px rgba(0,0,0,0.2);
+      background: rgba(28, 28, 30, 0.98);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.04), 0 4px 32px rgba(0,0,0,0.22);
     }
     .nav-inner { display: flex; align-items: center; gap: var(--sp-xxl); width: 100%; }
     .nav-logo { display: flex; align-items: center; gap: var(--sp-sm); text-decoration: none; flex-shrink: 0; }
@@ -211,14 +212,14 @@
       display: flex; align-items: center; justify-content: center;
       font-weight: 700; font-size: 17px; color: var(--color-primary); letter-spacing: -0.5px;
     }
-    .nav-logo-name { font-size: 17px; font-weight: 600; color: #fff; letter-spacing: -0.3px; }
+    .nav-logo-name { font-size: 17px; font-weight: 600; color: #f5f0e8; letter-spacing: -0.3px; }
     .nav-links { display: flex; align-items: center; gap: var(--sp-xxl); list-style: none; flex: 1; }
-    .nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 200ms; }
-    .nav-links a:hover { color: #fff; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: rgba(245,240,232,0.65); text-decoration: none; transition: color 200ms; }
+    .nav-links a:hover { color: #f5f0e8; }
     .nav-actions { display: flex; align-items: center; gap: var(--sp-md); flex-shrink: 0; }
-    .nav-link-plain { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.7); text-decoration: none; }
-    .nav-link-plain:hover { color: #fff; }
-    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; color: #fff; margin-left: auto; }
+    .nav-link-plain { font-size: 14px; font-weight: 500; color: rgba(245,240,232,0.65); text-decoration: none; }
+    .nav-link-plain:hover { color: #f5f0e8; }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; color: #f5f0e8; margin-left: auto; }
     @media (max-width: 1023px) {
       .nav-links { display: none; }
       .nav-actions .nav-link-plain { display: none; }
@@ -653,7 +654,7 @@
        TASK 3 — Active Nav Link Highlighting
     ============================================================ */
     .nav-links a.nav-active {
-      color: #fff;
+      color: #f5f0e8;
     }
 
     /* ============================================================
