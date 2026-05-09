@@ -861,8 +861,8 @@
     <section class="hero-cinema" aria-labelledby="hero-headline">
       <!-- Background video — custom hero reel -->
       <video class="hero-video-bg" autoplay muted loop playsinline preload="auto"
-             poster="https://hyperagent.com/api/files/usergenerated/threads/cmoxs6cxb09i908ad5qhk3mtj/images/ca0ff553-02e6-4fcc-a0ab-070a84e64594.jpg">
-        <source src="https://hyperagent.com/api/files/usergenerated/threads/cmoxs6cxb09i908ad5qhk3mtj/uploads/37f5a58d-5a62-4edf-9393-510cba3f960c.mp4" type="video/mp4">
+             poster="https://pub.hyperagent.com/api/published/pbf01KR5XVNMB_1TX4A52238WE1P1F/hero-poster.jpg">
+        <source src="https://pub.hyperagent.com/api/published/pbf01KR5XTFKE_6HBDBREDJW8P0XYG/Hero11All.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
 
@@ -1348,18 +1348,7 @@
     // Start typing after a brief delay
     setTimeout(typeLoop, 600);
 
-    // Legacy compatibility — keep these as no-ops so other code doesn't break
-    var dots_legacy = document.querySelectorAll('.hero-tab-dot');
-    dots_legacy.forEach(dot => {
-      dot.addEventListener('click', () => {
-          showPair(idx);
-          resetCycle();
-        }
-      });
-    });
-
-    // Start auto-cycling
-    startCycle();
+    // (Legacy hero-tab code removed — replaced by typing hero)
 
     // =============================================
     // Sticky nav background on scroll
