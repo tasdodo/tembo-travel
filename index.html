@@ -160,8 +160,8 @@
     .btn-secondary { background: transparent; color: var(--color-ink); border: 1px solid var(--color-hairline-strong); }
     .btn-on-dark { background: var(--color-on-dark); color: var(--color-primary); }
     .btn-yellow { background: var(--color-brand-yellow); color: var(--color-primary); }
-    .btn-ghost-light { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(8px); }
-    .btn-ghost-light:hover { background: rgba(255,255,255,0.2); }
+    .btn-ghost-light { background: rgba(28,28,30,0.06); color: var(--color-primary); border: 1px solid rgba(28,28,30,0.2); backdrop-filter: blur(8px); }
+    .btn-ghost-light:hover { background: rgba(28,28,30,0.12); }
     .btn-lg { padding: 14px 28px; font-size: 15px; }
 
     .badge { display: inline-flex; align-items: center; border-radius: var(--rounded-full); padding: 4px 10px; font-size: 13px; font-weight: 600; line-height: 1.40; }
@@ -234,7 +234,7 @@
       height: 100vh;
       min-height: 700px;
       overflow: hidden;
-      background: #ffffff;
+      background: #ffffff url('https://pub.hyperagent.com/api/published/pbf01KR5XVNMB_1TX4A52238WE1P1F/hero-poster.jpg') center/cover no-repeat;
     }
 
     .hero-video-bg {
@@ -861,6 +861,7 @@
     <section class="hero-cinema" aria-labelledby="hero-headline">
       <!-- Background video — custom hero reel -->
       <video class="hero-video-bg" autoplay muted loop playsinline preload="auto"
+             crossorigin="anonymous"
              poster="https://pub.hyperagent.com/api/published/pbf01KR5XVNMB_1TX4A52238WE1P1F/hero-poster.jpg">
         <source src="https://pub.hyperagent.com/api/published/pbf01KR5XTFKE_6HBDBREDJW8P0XYG/Hero11All.mp4" type="video/mp4">
       </video>
@@ -874,7 +875,7 @@
       <div class="hero-content container">
         <div class="hero-typing-wrap">
           <h1 id="hero-headline" class="hero-typing-line" aria-live="polite">
-            <span id="typed-text"></span><span class="hero-typing-cursor"></span>
+            <span id="typed-text">Stop Googling for operators.</span><span class="hero-typing-cursor"></span>
           </h1>
           <div class="hero-ctas-cinema" style="margin-top:48px">
             <a href="#pricing" class="btn btn-yellow btn-lg btn-shimmer">Request access</a>
@@ -1300,55 +1301,64 @@
     // =============================================
     // FIS-style Typing Hero — pain points cycle
     // =============================================
-    const typedEl = document.getElementById('typed-text');
-    const phrases = [
-      'Stop Googling for operators.',
-      'No more unverified suppliers.',
-      'Your clients deserve better.',
-      'End the email back-and-forth.',
-      'Itineraries built in 60 seconds.',
-      'Direct access. Zero commission.',
-      'Verified across five countries.',
-    ];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typeSpeed = 55;
-    const deleteSpeed = 30;
-    const pauseAfterType = 2200;
-    const pauseAfterDelete = 400;
+    (function() {
+      try {
+        var typedEl = document.getElementById('typed-text');
+        if (!typedEl) return;
 
-    function typeLoop() {
-      const current = phrases[phraseIndex];
+        var phrases = [
+          'Stop Googling for operators.',
+          'No more unverified suppliers.',
+          'Your clients deserve better.',
+          'End the email back-and-forth.',
+          'Itineraries built in 60 seconds.',
+          'Direct access. Zero commission.',
+          'Verified across five countries.'
+        ];
+        var phraseIndex = 0;
+        var charIndex = phrases[0].length; // Start with full first phrase (matches HTML fallback)
+        var isDeleting = false;
+        var typeSpeed = 55;
+        var deleteSpeed = 30;
+        var pauseAfterType = 2200;
+        var pauseAfterDelete = 400;
 
-      if (!isDeleting) {
-        // Typing forward
-        typedEl.textContent = current.substring(0, charIndex + 1);
-        charIndex++;
-        if (charIndex === current.length) {
-          // Pause then start deleting
-          setTimeout(() => { isDeleting = true; typeLoop(); }, pauseAfterType);
-          return;
+        function typeLoop() {
+          try {
+            var current = phrases[phraseIndex];
+
+            if (!isDeleting) {
+              typedEl.textContent = current.substring(0, charIndex + 1);
+              charIndex++;
+              if (charIndex >= current.length) {
+                setTimeout(function() { isDeleting = true; typeLoop(); }, pauseAfterType);
+                return;
+              }
+              setTimeout(typeLoop, typeSpeed);
+            } else {
+              charIndex--;
+              typedEl.textContent = current.substring(0, charIndex);
+              if (charIndex <= 0) {
+                isDeleting = false;
+                charIndex = 0;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(typeLoop, pauseAfterDelete);
+                return;
+              }
+              setTimeout(typeLoop, deleteSpeed);
+            }
+          } catch(e) {
+            // On error, just show fallback text
+            typedEl.textContent = phrases[0];
+          }
         }
-        setTimeout(typeLoop, typeSpeed);
-      } else {
-        // Deleting
-        typedEl.textContent = current.substring(0, charIndex - 1);
-        charIndex--;
-        if (charIndex === 0) {
-          isDeleting = false;
-          phraseIndex = (phraseIndex + 1) % phrases.length;
-          setTimeout(typeLoop, pauseAfterDelete);
-          return;
-        }
-        setTimeout(typeLoop, deleteSpeed);
+
+        // Start with a pause on the first phrase, then begin deleting it
+        setTimeout(function() { isDeleting = true; typeLoop(); }, pauseAfterType);
+      } catch(e) {
+        // Fallback: the static HTML text remains visible
       }
-    }
-
-    // Start typing after a brief delay
-    setTimeout(typeLoop, 600);
-
-    // (Legacy hero-tab code removed — replaced by typing hero)
+    })();
 
     // =============================================
     // Sticky nav background on scroll
