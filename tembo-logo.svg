@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
+  <!-- Tembo Travel Logo Mark — Compass Route -->
+  <rect width="36" height="36" rx="8" fill="#ffd02f"/>
+  <!-- Compass ring -->
+  <circle cx="18" cy="18" r="10" stroke="#1c1c1e" stroke-width="1.6" fill="none"/>
+  <!-- Compass needle N (bold) -->
+  <polygon points="18,8.5 16,17 18,15.5 20,17" fill="#1c1c1e"/>
+  <!-- Compass needle S (lighter) -->
+  <polygon points="18,27.5 16,19 18,20.5 20,19" fill="#1c1c1e" opacity="0.3"/>
+  <!-- Center dot -->
+  <circle cx="18" cy="18" r="1.8" fill="#1c1c1e"/>
+  <!-- Route pin at NE -->
+  <circle cx="24" cy="12" r="2.4" fill="#1c1c1e"/>
+  <circle cx="24" cy="12" r="0.9" fill="#ffd02f"/>
+  <!-- Cardinal ticks E/W -->
+  <line x1="28" y1="18" x2="26.2" y2="18" stroke="#1c1c1e" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="8" y1="18" x2="9.8" y2="18" stroke="#1c1c1e" stroke-width="1.4" stroke-linecap="round"/>
+</svg>
