@@ -267,211 +267,54 @@
       padding-top: 72px;
     }
 
-    /* Top headline area */
-    .hero-top {
+    /* ---- FIS-style Typing Hero ---- */
+    .hero-typing-wrap {
       text-align: center;
-      margin-bottom: 48px;
-    }
-    .hero-eyebrow-cinema {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 208, 47, 0.15);
-      border: 1px solid rgba(255, 208, 47, 0.3);
-      color: var(--color-brand-yellow);
-      border-radius: var(--rounded-full);
-      padding: 6px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      margin-bottom: 28px;
-      backdrop-filter: blur(8px);
-    }
-    .hero-headline-cinema {
-      font-size: 72px;
-      font-weight: 600;
-      line-height: 1.05;
-      letter-spacing: -2.5px;
-      color: #fff;
-      max-width: 900px;
-      margin: 0 auto 20px;
-    }
-    .hero-headline-cinema .accent { color: var(--color-brand-yellow); }
-    .hero-sub-cinema {
-      font-size: 19px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.65);
-      max-width: 580px;
-      margin: 0 auto;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 1023px) {
-      .hero-headline-cinema { font-size: 48px; letter-spacing: -1.5px; }
-      .hero-sub-cinema { font-size: 17px; }
-    }
-    @media (max-width: 767px) {
-      .hero-headline-cinema { font-size: 36px; letter-spacing: -1px; }
-      .hero-cinema { min-height: 100vh; }
-    }
-    @media (max-width: 479px) {
-      .hero-headline-cinema { font-size: 28px; }
-    }
-
-    /* ---- Pain/Solution Cycling Panel ---- */
-    .hero-panels {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 var(--sp-xxl);
-    }
-
-    .panels-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      position: relative;
-      min-height: 200px;
-    }
-    @media (max-width: 767px) {
-      .panels-grid { grid-template-columns: 1fr; gap: 16px; min-height: auto; }
-    }
-
-    /* Individual slide pair */
-    .panel-slide {
-      display: contents;
-      opacity: 0;
-      pointer-events: none;
-    }
-    .panel-slide.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* We use absolute positioning for crossfade */
-    .panels-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .panel-pair {
-      display: none;
-      grid-column: 1 / -1;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      animation: panelFadeIn 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-    .panel-pair.active {
-      display: grid;
-    }
-    .panel-pair.exiting {
-      display: grid;
-      animation: panelFadeOut 400ms ease both;
-    }
-    @media (max-width: 767px) {
-      .panel-pair { grid-template-columns: 1fr; gap: 16px; }
-      .panel-card { padding: 28px 28px; min-height: 140px; }
-      .panel-title { font-size: 24px; }
-    }
-
-    @keyframes panelFadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes panelFadeOut {
-      from { opacity: 1; transform: translateY(0); }
-      to   { opacity: 0; transform: translateY(-12px); }
-    }
-
-    .panel-card {
-      border-radius: 24px;
-      padding: 40px 44px;
-      backdrop-filter: blur(24px);
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: transform 300ms ease;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      min-height: 180px;
-    }
-    .panel-card:hover { transform: translateY(-2px); }
-
-    .panel-pain {
-      background: rgba(255, 99, 99, 0.10);
-      border-color: rgba(255, 153, 153, 0.18);
-    }
-    .panel-solution {
-      background: rgba(15, 188, 176, 0.10);
-      border-color: rgba(15, 188, 176, 0.18);
-    }
-
-    .panel-label {
-      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
+      justify-content: center;
+      flex: 1;
+      padding-bottom: 80px;
     }
-    .panel-pain .panel-label { color: var(--color-brand-coral); }
-    .panel-solution .panel-label { color: var(--color-brand-teal); }
 
-    .panel-label-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      animation: labelPulse 2s ease infinite;
-    }
-    @keyframes labelPulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-    .panel-pain .panel-label-dot { background: var(--color-brand-coral); }
-    .panel-solution .panel-label-dot { background: var(--color-brand-teal); }
-
-    .panel-title {
-      font-size: 32px;
-      font-weight: 600;
-      color: #fff;
+    .hero-typing-line {
+      font-size: clamp(36px, 5.5vw, 72px);
+      font-weight: 300;
       line-height: 1.15;
-      letter-spacing: -0.8px;
+      letter-spacing: -1.5px;
+      color: #fff;
+      min-height: 1.3em;
+      position: relative;
     }
 
-    .panel-sub {
-      font-size: 16px;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.5;
-      margin-top: 12px;
-    }
-
-    /* Tab Navigation Dots */
-    .hero-tabs {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 36px;
-      padding-bottom: 48px;
-    }
-
-    .hero-tab-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      border: none;
-      cursor: pointer;
-      transition: all 300ms ease;
-      padding: 0;
-    }
-    .hero-tab-dot.active {
-      width: 36px;
-      border-radius: 5px;
+    .hero-typing-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 0.85em;
       background: var(--color-brand-yellow);
+      margin-left: 3px;
+      vertical-align: text-bottom;
+      animation: cursorBlink 0.8s step-end infinite;
     }
-    .hero-tab-dot:hover:not(.active) { background: rgba(255,255,255,0.4); }
+
+    @keyframes cursorBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .hero-typing-sub {
+      font-size: 17px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      margin-top: 40px;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 767px) {
+      .hero-typing-line { letter-spacing: -0.5px; }
+      .hero-cinema { min-height: 100vh; }
+    }
 
     /* Hero CTAs */
     .hero-ctas-cinema {
@@ -912,7 +755,6 @@
     button:focus-visible,
     .btn:focus-visible,
     .faq-question:focus-visible,
-    .hero-tab-dot:focus-visible,
     .nav-hamburger:focus-visible,
     .mobile-menu-close:focus-visible {
       outline: 2px solid var(--color-brand-yellow);
@@ -920,11 +762,8 @@
     }
 
     /* Improved contrast for text over video */
-    .hero-headline-cinema {
-      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
-    }
-    .hero-sub-cinema {
-      text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+    .hero-typing-line {
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
     }
 
     /* Prefers reduced motion */
@@ -945,10 +784,7 @@
       .mobile-menu {
         transition: none;
       }
-      .panel-pair {
-        animation: none;
-      }
-      .panel-pair.exiting {
+      .hero-typing-cursor {
         animation: none;
       }
       .card-feature:hover {
@@ -1036,108 +872,15 @@
       </button>
 
       <div class="hero-content container">
-        <!-- Top headline -->
-        <div class="hero-top">
-          <div class="hero-eyebrow-cinema">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            B2B Travel Infrastructure for East Africa
-          </div>
-          <h1 id="hero-headline" class="hero-headline-cinema">
-            The <span class="accent">verified gateway</span> to East Africa's best operators
+        <div class="hero-typing-wrap">
+          <h1 id="hero-headline" class="hero-typing-line" aria-live="polite">
+            <span id="typed-text"></span><span class="hero-typing-cursor"></span>
           </h1>
-          <p class="hero-sub-cinema">
-            AI-powered matching across Kenya, Tanzania, Uganda, Rwanda, and Ethiopia. From search to signed itinerary in minutes, not weeks.
-          </p>
-          <div class="hero-ctas-cinema">
+          <div class="hero-ctas-cinema" style="margin-top:48px">
             <a href="#pricing" class="btn btn-yellow btn-lg btn-shimmer">Request access</a>
             <a href="mailto:hello@tembo.travel" class="btn btn-ghost-light btn-lg">Book a demo</a>
           </div>
-        </div>
-
-        <!-- Cycling Pain Points & Solutions -->
-        <div class="hero-panels">
-          <div class="panels-grid" aria-live="polite">
-
-            <!-- Pair 1 -->
-            <div class="panel-pair active" data-pair="0">
-              <div class="panel-card panel-pain">
-                <div class="panel-label"><span class="panel-label-dot"></span> The Problem</div>
-                <div class="panel-title">Fragmented supply chain</div>
-                <div class="panel-sub">Weeks sourcing operators through emails, WhatsApp, and trade shows</div>
-              </div>
-              <div class="panel-card panel-solution">
-                <div class="panel-label"><span class="panel-label-dot"></span> Tembo Solution</div>
-                <div class="panel-title">AI matching in 60 seconds</div>
-                <div class="panel-sub">One verified directory across 5 countries. Instant operator matching.</div>
-              </div>
-            </div>
-
-            <!-- Pair 2 -->
-            <div class="panel-pair" data-pair="1">
-              <div class="panel-card panel-pain">
-                <div class="panel-label"><span class="panel-label-dot"></span> The Problem</div>
-                <div class="panel-title">No way to verify suppliers</div>
-                <div class="panel-sub">Are they licensed? Insured? Operationally sound? No one knows.</div>
-              </div>
-              <div class="panel-card panel-solution">
-                <div class="panel-label"><span class="panel-label-dot"></span> Tembo Solution</div>
-                <div class="panel-title">14-point verification</div>
-                <div class="panel-sub">Every supplier manually reviewed. Licensing, safety, fleet, finance.</div>
-              </div>
-            </div>
-
-            <!-- Pair 3 -->
-            <div class="panel-pair" data-pair="2">
-              <div class="panel-card panel-pain">
-                <div class="panel-label"><span class="panel-label-dot"></span> The Problem</div>
-                <div class="panel-title">Days to build one quote</div>
-                <div class="panel-sub">Emails, spreadsheets, phone calls across time zones for every itinerary</div>
-              </div>
-              <div class="panel-card panel-solution">
-                <div class="panel-label"><span class="panel-label-dot"></span> Tembo Solution</div>
-                <div class="panel-title">AI itinerary builder</div>
-                <div class="panel-sub">Complete, priced itineraries generated in under 60 seconds</div>
-              </div>
-            </div>
-
-            <!-- Pair 4 -->
-            <div class="panel-pair" data-pair="3">
-              <div class="panel-card panel-pain">
-                <div class="panel-label"><span class="panel-label-dot"></span> The Problem</div>
-                <div class="panel-title">Middlemen eat your margins</div>
-                <div class="panel-sub">Layers of agents inflate costs. No visibility into net rates.</div>
-              </div>
-              <div class="panel-card panel-solution">
-                <div class="panel-label"><span class="panel-label-dot"></span> Tembo Solution</div>
-                <div class="panel-title">Direct supply. Zero commission.</div>
-                <div class="panel-sub">See net rates alongside your markup. Keep 100% of every booking.</div>
-              </div>
-            </div>
-
-            <!-- Pair 5 -->
-            <div class="panel-pair" data-pair="4">
-              <div class="panel-card panel-pain">
-                <div class="panel-label"><span class="panel-label-dot"></span> The Problem</div>
-                <div class="panel-title">Blind across time zones</div>
-                <div class="panel-sub">Manual calls for availability. Context lost in endless email threads.</div>
-              </div>
-              <div class="panel-card panel-solution">
-                <div class="panel-label"><span class="panel-label-dot"></span> Tembo Solution</div>
-                <div class="panel-title">Live operator directory</div>
-                <div class="panel-sub">Real-time search, compare, and connect across all 5 countries</div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Tab dots -->
-          <div class="hero-tabs" role="tablist" aria-label="Pain points and solutions">
-            <button class="hero-tab-dot active" data-tab="0" role="tab" aria-selected="true" aria-label="Supply chain"></button>
-            <button class="hero-tab-dot" data-tab="1" role="tab" aria-selected="false" aria-label="Verification"></button>
-            <button class="hero-tab-dot" data-tab="2" role="tab" aria-selected="false" aria-label="Quote building"></button>
-            <button class="hero-tab-dot" data-tab="3" role="tab" aria-selected="false" aria-label="Pricing"></button>
-            <button class="hero-tab-dot" data-tab="4" role="tab" aria-selected="false" aria-label="Visibility"></button>
-          </div>
+          <p class="hero-typing-sub">Verified B2B marketplace &middot; East Africa &middot; 5 countries</p>
         </div>
       </div>
 
@@ -1555,53 +1298,60 @@
 
   <script>
     // =============================================
-    // Cycling Pain/Solution Panels — 7s per pair
+    // FIS-style Typing Hero — pain points cycle
     // =============================================
-    const pairs = document.querySelectorAll('.panel-pair');
-    const dots = document.querySelectorAll('.hero-tab-dot');
-    let currentPair = 0;
-    let cycleTimer;
-    let isTransitioning = false;
+    const typedEl = document.getElementById('typed-text');
+    const phrases = [
+      'Stop Googling for operators.',
+      'No more unverified suppliers.',
+      'Your clients deserve better.',
+      'End the email back-and-forth.',
+      'Itineraries built in 60 seconds.',
+      'Direct access. Zero commission.',
+      'Verified across five countries.',
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typeSpeed = 55;
+    const deleteSpeed = 30;
+    const pauseAfterType = 2200;
+    const pauseAfterDelete = 400;
 
-    function showPair(index) {
-      if (isTransitioning || index === currentPair) return;
-      isTransitioning = true;
+    function typeLoop() {
+      const current = phrases[phraseIndex];
 
-      const outgoing = pairs[currentPair];
-      outgoing.classList.remove('active');
-      outgoing.classList.add('exiting');
-
-      dots[currentPair].classList.remove('active');
-      dots[currentPair].setAttribute('aria-selected', 'false');
-
-      setTimeout(() => {
-        outgoing.classList.remove('exiting');
-        pairs[index].classList.add('active');
-        dots[index].classList.add('active');
-        dots[index].setAttribute('aria-selected', 'true');
-        currentPair = index;
-        isTransitioning = false;
-      }, 400);
+      if (!isDeleting) {
+        // Typing forward
+        typedEl.textContent = current.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === current.length) {
+          // Pause then start deleting
+          setTimeout(() => { isDeleting = true; typeLoop(); }, pauseAfterType);
+          return;
+        }
+        setTimeout(typeLoop, typeSpeed);
+      } else {
+        // Deleting
+        typedEl.textContent = current.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(typeLoop, pauseAfterDelete);
+          return;
+        }
+        setTimeout(typeLoop, deleteSpeed);
+      }
     }
 
-    function nextPair() {
-      showPair((currentPair + 1) % pairs.length);
-    }
+    // Start typing after a brief delay
+    setTimeout(typeLoop, 600);
 
-    function startCycle() {
-      cycleTimer = setInterval(nextPair, 7000);
-    }
-
-    function resetCycle() {
-      clearInterval(cycleTimer);
-      startCycle();
-    }
-
-    // Tab dot clicks
-    dots.forEach(dot => {
+    // Legacy compatibility — keep these as no-ops so other code doesn't break
+    var dots_legacy = document.querySelectorAll('.hero-tab-dot');
+    dots_legacy.forEach(dot => {
       dot.addEventListener('click', () => {
-        const idx = parseInt(dot.dataset.tab);
-        if (idx !== currentPair) {
           showPair(idx);
           resetCycle();
         }
